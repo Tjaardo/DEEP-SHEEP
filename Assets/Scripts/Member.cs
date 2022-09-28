@@ -45,6 +45,7 @@ public class Member : MonoBehaviour
         if(!hasEaten)
         {
             anim.SetBool("isEating", false);
+            Debug.DrawLine(transform.position, Combine(), Color.white, .1f);
             acceleration = Combine();
             acceleration = Vector3.ClampMagnitude(acceleration, conf.maxAcceleration);
             velocity = velocity + acceleration * Time.deltaTime;
@@ -52,7 +53,7 @@ public class Member : MonoBehaviour
             position = position + velocity * Time.deltaTime;
             WrapAround(ref position, -level.bounds, level.bounds);
             transform.position = position;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Combine() + (Alignment() * 10)), Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Combine().normalized), Time.deltaTime);
         }
         else
         {
@@ -79,6 +80,7 @@ public class Member : MonoBehaviour
     {
         float jitter = conf.wanderJitter * Time.deltaTime;
         wanderTarget += new Vector3(RandomBinomial() * jitter, 0, RandomBinomial() * jitter);
+        
         wanderTarget = wanderTarget.normalized;
         wanderTarget *= conf.wanderRadius;
         Vector3 targetInLocalSpace = wanderTarget + new Vector3(conf.wanderDistance, 0, conf.wanderDistance);
@@ -129,6 +131,7 @@ public class Member : MonoBehaviour
     Vector3 Separation()
     {
         Vector3 separateVector = new Vector3();
+        Vector3 normal = new Vector3();
         var members = level.GetNeighbors(this, conf.separationRadius);
         if(members.Count == 0)
             return separateVector;
@@ -143,8 +146,16 @@ public class Member : MonoBehaviour
                 }
             }
         }
-
-         return separateVector.normalized;   
+        float angle = Vector3.Angle(separateVector, transform.forward);
+        if(angle > 130f)
+        {
+            return transform.forward;
+        }
+        else
+        {
+            return separateVector.normalized;  
+        }
+         
     }
 
     Vector3 Avoidance()

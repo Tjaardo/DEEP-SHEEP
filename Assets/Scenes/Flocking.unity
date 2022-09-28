@@ -290,7 +290,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246678297}
-  m_LocalRotation: {x: 0.06789932, y: 0.7800815, z: -0.08598387, w: 0.61601084}
+  m_LocalRotation: {x: 0.06789931, y: 0.7800815, z: -0.085983865, w: 0.61601084}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -505,8 +505,8 @@ Camera:
   near clip plane: 0.1
   far clip plane: 5000
   field of view: 40
-  orthographic: 0
-  orthographic size: 10
+  orthographic: 1
+  orthographic size: 25.3
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -529,14 +529,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701441243}
-  m_LocalRotation: {x: 0.06789931, y: 0.78008157, z: -0.08598388, w: 0.6160108}
-  m_LocalPosition: {x: -1.0833297, y: 1.6800002, z: 0.25819385}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &742104615
 GameObject:
   m_ObjectHideFlags: 3
@@ -733,7 +733,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890609579}
-  m_LocalRotation: {x: 0.079093, y: 0.77838844, z: -0.100158945, w: 0.61467385}
+  m_LocalRotation: {x: 0.079093, y: 0.77838844, z: -0.10015892, w: 0.6146739}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -818,20 +818,20 @@ MonoBehaviour:
   maxVelocity: 1
   wanderJitter: 10
   wanderRadius: 2
-  wanderDistance: 1
-  wanderPriority: 100
+  wanderDistance: 3
+  wanderPriority: 10
   cohesionRadius: 20
-  cohesionPriority: 500
-  alignmentRadius: 20
-  alignmentPriority: 500
-  separationRadius: 3
-  separaitionPriority: 700
-  avoidanceRadius: 10
+  cohesionPriority: 60
+  alignmentRadius: 10
+  alignmentPriority: 90
+  separationRadius: 6
+  separaitionPriority: 90
+  avoidanceRadius: 5
   avoidancePriority: 700
   boundsRadius: 20
   boundsPriority: 700
   foodRadius: 5
-  foodPriority: 900
+  foodPriority: 700
   walkingTimeMin: 3
   walkingTimeMax: 10
   eatingTimeMin: 5
@@ -941,7 +941,7 @@ PrefabInstance:
     - target: {fileID: 2744173441596351539, guid: d4c126b0781554b039707e5f3ee15629,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2744173441596717075, guid: d4c126b0781554b039707e5f3ee15629,
         type: 3}
@@ -1301,7 +1301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1730253864
 MonoBehaviour:
   m_ObjectHideFlags: 0
